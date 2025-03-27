@@ -26,7 +26,7 @@ const LiveATCPlayer = ({ volume, isPlaying }) => {
       ref={audioRef}
       controls
       autoPlay
-      src='https://s1-bos.liveatc.net/ltfj2?nocache=2025032708285447119'
+      src='https://s1-bos.liveatc.net/ltfj2'
       style={{
         visibility: 'hidden',
       }}
