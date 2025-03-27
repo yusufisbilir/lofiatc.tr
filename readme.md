@@ -4,7 +4,6 @@ Türk lo-fi müzikleriyle Sabiha Gökçen Havalimanı gerçek zamanlı kule sesl
 
 ## ⚠️ Durum  
 ❌ **LiveATC tarafından engellendim.**  
-✅ **Gelecek Güncellemeler:**  
 - [ ] **Stream Proxy** entegrasyonu
 
 [LiveATC.tr](https://lofiatctr.vercel.app/)
