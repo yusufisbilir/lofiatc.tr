@@ -4,4 +4,4 @@
 
 Türk lo-fi müzikleriyle Sabiha Gökçen Havalimanı gerçek zamanlı kule seslerini karıştırır. Kod yazarken dinlemek çok keyifli.
 
-[LiveATC.tr](https://lofi-atc-tr.vercel.app/)
+[LiveATC.tr](https://lofiatctr.vercel.app/)
