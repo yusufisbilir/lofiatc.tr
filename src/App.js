@@ -22,7 +22,7 @@ function App() {
               alt='turkey Flag'
               className='turkey-flag'
             />
-            <h1>Lofi ATC Türkiye</h1>
+            <h1>Lo-fi ATC Türkiye</h1>
             <div className='start-button'>
               <span>Dinlemek için tıklayın</span>
             </div>
@@ -32,7 +32,9 @@ function App() {
         <>
           <header className='App-header'>
             <h1>Lofi ATC Türkiye</h1>
-            <p>Sabiha Gökçen Havalimanı (SAW) + Lo-fi Music</p>
+            <p>
+              Sabiha Gökçen Havalimanı (SAW) Trafik Kontrol Kule + Lo-fi Music
+            </p>
           </header>
 
           <main className='container'>
