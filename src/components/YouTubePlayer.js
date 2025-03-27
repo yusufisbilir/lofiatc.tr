@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-const YouTubePlayer = () => {
+const YouTubePlayer = ({ isPlaying }) => {
   const playerRef = useRef(null);
 
   useEffect(() => {
@@ -13,20 +13,21 @@ const YouTubePlayer = () => {
 
     // YouTube API hazır olduğunda çalışacak fonksiyon
     window.onYouTubeIframeAPIReady = () => {
-      new window.YT.Player('youtube-player', {
+      playerRef.current = new window.YT.Player('youtube-player', {
         videoId: '8lEGrC80a0w',
         playerVars: {
-          autoplay: 1,
+          autoplay: isPlaying ? 1 : 0,
           controls: 1,
           modestbranding: 1,
           rel: 0,
         },
         events: {
           onReady: (event) => {
-            // Video hazır olduğunda sesi açık olarak başlatır
-            event.target.playVideo();
-            event.target.unMute();
-            event.target.setVolume(70);
+            if (isPlaying) {
+              event.target.playVideo();
+              event.target.unMute();
+              event.target.setVolume(70);
+            }
           },
         },
       });
@@ -35,8 +36,11 @@ const YouTubePlayer = () => {
     // Temizleme fonksiyonu
     return () => {
       window.onYouTubeIframeAPIReady = null;
+      if (playerRef.current) {
+        playerRef.current.destroy();
+      }
     };
-  }, []);
+  }, [isPlaying]);
 
   return (
     <div className='youtube-player'>

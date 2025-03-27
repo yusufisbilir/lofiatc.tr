@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
-const LiveATCPlayer = ({ volume }) => {
+const LiveATCPlayer = ({ volume, isPlaying }) => {
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -8,6 +8,18 @@ const LiveATCPlayer = ({ volume }) => {
       audioRef.current.volume = volume;
     }
   }, [volume]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play().catch((error) => {
+          console.log('LiveATC oynatma hatası:', error);
+        });
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isPlaying]);
 
   return (
     <div className='live-atc-player'>
@@ -20,6 +32,9 @@ const LiveATCPlayer = ({ volume }) => {
           src='https://s1-bos.liveatc.net/ltfj2?nocache=2025032708285447119'
           className='audio-player'
         />
+      </div>
+      <div className='info-message'>
+        <p>Not: Ses akışında sorun yaşarsanız sayfayı yenileyin.</p>
       </div>
     </div>
   );

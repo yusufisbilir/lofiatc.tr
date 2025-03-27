@@ -6,26 +6,49 @@ import './App.css';
 
 function App() {
   const [atcVolume, setAtcVolume] = useState(0.5);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handleStartPlaying = () => {
+    setIsPlaying(true);
+  };
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1>LofiATC Türkiye</h1>
-        <p>İstanbul Havalimanı Kule İletişimi + Lo-fi Müzik</p>
-      </header>
-
-      <main>
-        <div className='players-container'>
-          <LiveATCPlayer volume={atcVolume} />
-          <YouTubePlayer />
+      {!isPlaying ? (
+        <div className='start-screen' onClick={handleStartPlaying}>
+          <div className='start-content'>
+            <img
+              src='https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg'
+              alt='turkey Flag'
+              className='turkey-flag'
+            />
+            <h1>Lofi ATC Türkiye</h1>
+            <div className='start-button'>
+              <span>Tap to start listening</span>
+            </div>
+          </div>
         </div>
+      ) : (
+        <>
+          <header className='App-header'>
+            <h1>Lofi ATC Türkiye</h1>
+            <p>Sabiha Gökçen Havalimanı (SAW) + Lo-fi Music</p>
+          </header>
 
-        <VolumeControl volume={atcVolume} onVolumeChange={setAtcVolume} />
-      </main>
+          <main>
+            <div className='players-container'>
+              <LiveATCPlayer volume={atcVolume} isPlaying={isPlaying} />
+              <YouTubePlayer isPlaying={isPlaying} />
+            </div>
 
-      <footer>
-        <p>© 2025 LofiATC Türkiye</p>
-      </footer>
+            <VolumeControl volume={atcVolume} onVolumeChange={setAtcVolume} />
+          </main>
+
+          <footer>
+            <p>© 2025 LofiATC Türkiye</p>
+          </footer>
+        </>
+      )}
     </div>
   );
 }
