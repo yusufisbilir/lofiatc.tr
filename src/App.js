@@ -24,7 +24,7 @@ function App() {
             />
             <h1>Lofi ATC Türkiye</h1>
             <div className='start-button'>
-              <span>Tap to start listening</span>
+              <span>Dinlemek için tıklayın</span>
             </div>
           </div>
         </div>
@@ -35,18 +35,11 @@ function App() {
             <p>Sabiha Gökçen Havalimanı (SAW) + Lo-fi Music</p>
           </header>
 
-          <main>
-            <div className='players-container'>
-              <LiveATCPlayer volume={atcVolume} isPlaying={isPlaying} />
-              <YouTubePlayer isPlaying={isPlaying} />
-            </div>
-
+          <main className='container'>
+            <YouTubePlayer isPlaying={isPlaying} />
             <VolumeControl volume={atcVolume} onVolumeChange={setAtcVolume} />
+            <LiveATCPlayer volume={atcVolume} isPlaying={isPlaying} />
           </main>
-
-          <footer>
-            <p>© 2025 LofiATC Türkiye</p>
-          </footer>
         </>
       )}
     </div>
